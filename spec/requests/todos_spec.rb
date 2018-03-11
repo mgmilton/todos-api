@@ -75,7 +75,7 @@ RSpec.describe "Todos API", type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(resonse.body)
+        expect(response.body)
           .to match(/Validation failed: Created by can't be blank/)
       end
     end
@@ -89,7 +89,7 @@ RSpec.describe "Todos API", type: :request do
       before { put "/todos/#{todo_id}", params: valid_attributes}
 
       it 'updates the record' do
-        expect(resonse.body).to be_empty
+        expect(response.body).to be_empty
       end
 
       it 'returns status code 204' do
@@ -103,7 +103,7 @@ RSpec.describe "Todos API", type: :request do
     before { delete "/todos/#{todo_id}" }
 
     it 'returns status code 204' do
-      expect(repsonse).to have_http_status(204)
+      expect(response).to have_http_status(204)
     end
   end
 end
